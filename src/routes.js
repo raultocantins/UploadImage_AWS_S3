@@ -31,4 +31,7 @@ routes.delete("/posts/:id", async (req, res) => {
   return res.send();
 });
 
+routes.get('/',(req,res)=>{
+  res.json({data:"Servidor ok"})
+})
 module.exports = routes;

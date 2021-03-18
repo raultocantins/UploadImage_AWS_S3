@@ -28,4 +28,6 @@ app.use(
 
 app.use(require("./src/routes"));
 
-app.listen(3000);
+app.listen(3000,(_)=>{
+  console.log('server subiu ok')
+});
