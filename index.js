@@ -1,4 +1,3 @@
-
 const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
@@ -10,12 +9,16 @@ require("dotenv").config();
 /**
  * Database setup
  */
-mongoose.connect(
-  process.env.MONGO_URL,
-  {
-    useNewUrlParser: true
-  }
-);
+mongoose
+  .connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+  })
+  .then((res) => {
+    console.log("conectado ao mongo");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 app.use(cors());
 app.use(express.json());
@@ -28,6 +31,6 @@ app.use(
 
 app.use(require("./src/routes"));
 
-app.listen(3000,(_)=>{
-  console.log('server subiu ok')
+app.listen(3000, (_) => {
+  console.log("server subiu ok");
 });
