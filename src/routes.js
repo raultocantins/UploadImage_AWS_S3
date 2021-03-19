@@ -6,7 +6,7 @@ const rateLimiter=require('./config/rateLimiter')
 const Post = require("./models/Post");
 //rateLimiter(),
 routes.get("/posts", async (req, res) => {
-  console.log(req)
+  console.log(req._remoteAddress)
   const posts = await Post.find();
 
   return res.json(posts);
