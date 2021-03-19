@@ -11,7 +11,7 @@ routes.get("/posts", rateLimiter, async (req, res) => {
   return res.json(posts);
 });
 
-routes.post("/posts", multer(multerConfig).single("file"), async (req, res) => {
+routes.post("/posts", multer(multerConfig).single("file"), rateLimiter,  async (req, res) => {
   const { originalname: name, size, key, location: url = "" } = req.file;
 
   const post = await Post.create({
