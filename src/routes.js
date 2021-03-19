@@ -4,8 +4,8 @@ const multerConfig = require("./config/multer");
 const rateLimiter=require('./config/rateLimiter')
 
 const Post = require("./models/Post");
-
-routes.get("/posts",rateLimiter(), async (req, res) => {
+//rateLimiter(),
+routes.get("/posts", async (req, res) => {
   console.log(req)
   const posts = await Post.find();
 
