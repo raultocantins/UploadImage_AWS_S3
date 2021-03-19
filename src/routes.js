@@ -7,6 +7,7 @@ const Post = require("./models/Post");
 //rateLimiter(),
 routes.get("/posts", async (req, res) => {
   console.log(req.ip)
+  console.log(req.connection.remoteAddress)
   const posts = await Post.find();
 
   return res.json(posts);
