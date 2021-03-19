@@ -3,7 +3,7 @@ const aws = require("aws-sdk");
 const fs = require("fs");
 const path = require("path");
 const { promisify } = require("util");
-console.log(process.env)
+
 
 const s3 = new aws.S3();
 
