@@ -7,7 +7,7 @@ const rateLimiter = new RateLimiterMemory(
 });
 
 const rateLimiterMiddleware = (req, res, next) => {
-  const userId = getUserId();
+  const userId = req.headers['x-forwarded-for'];
   // Consume 1 point for each action
   rateLimiter.consume(userId) // or req.ip
     .then(() => {
