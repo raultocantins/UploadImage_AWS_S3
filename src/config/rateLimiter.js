@@ -17,3 +17,4 @@ const rateLimiterMiddleware = (req, res, next) => {
       res.status(429).send('Too Many Requests');
     });
 };
+export default rateLimiterMiddleware;
